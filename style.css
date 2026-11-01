@@ -1,0 +1,614 @@
+/* =================================
+   PHYIXLAB STUDENT TRACKER
+   Dark Navy + Mint Green Theme
+================================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #081321;
+  --card: #152238;
+  --input: #091426;
+  --primary: #58d6c9;
+  --primary-dark: #35b9ad;
+  --text: #edf3ff;
+  --muted: #a9b8ce;
+  --border: #263751;
+  --green: #58d6a8;
+  --red: #ff8b87;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* HEADER */
+
+.header {
+  background: #081321;
+  color: var(--text);
+  padding: 26px 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.header > div {
+  max-width: 1100px;
+  margin: auto;
+}
+
+.header h1 {
+  font-size: 29px;
+  font-weight: 750;
+  letter-spacing: 0.4px;
+}
+
+.header p {
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* MAIN LAYOUT */
+
+.container {
+  max-width: 1100px;
+  margin: 25px auto;
+  padding: 0 16px;
+
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+
+  align-items: start;
+}
+
+/* CARDS */
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 22px;
+
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+
+  min-width: 0;
+}
+
+.card h2 {
+  font-size: 21px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  color: var(--text);
+}
+
+/* FORM */
+
+label {
+  display: block;
+  margin: 14px 0 7px;
+
+  color: #d5e0f0;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+input {
+  display: block;
+  width: 100%;
+  min-width: 0;
+
+  padding: 13px 14px;
+
+  background: var(--input);
+  color: var(--text);
+
+  border: 1px solid var(--border);
+  border-radius: 11px;
+
+  font-size: 15px;
+  font-family: inherit;
+
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input::placeholder {
+  color: #78879d;
+}
+
+input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(88, 214, 201, 0.12);
+}
+
+input[type="date"] {
+  color-scheme: dark;
+}
+
+input[type="number"] {
+  appearance: textfield;
+}
+
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+  appearance: none;
+}
+
+/* BUTTONS */
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+
+  border: none;
+  border-radius: 9px;
+
+  padding: 10px 13px;
+
+  transition: background 0.2s, transform 0.15s;
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+/* Main mint button */
+
+.primary-btn {
+  width: auto;
+  min-height: 43px;
+
+  margin-top: 18px;
+  padding: 12px 17px;
+
+  background: var(--primary);
+  color: #071522;
+
+  font-size: 14px;
+  font-weight: 750;
+}
+
+.primary-btn:hover {
+  background: var(--primary-dark);
+}
+
+/* Secondary blue button */
+
+.secondary-btn {
+  background: #123e59;
+  color: #8ddcff;
+}
+
+.secondary-btn:hover {
+  background: #19516e;
+}
+
+/* Delete button */
+
+.danger-btn {
+  background: #482b31;
+  color: #ffaaa3;
+}
+
+.danger-btn:hover {
+  background: #60353b;
+}
+
+.small-btn {
+  padding: 9px 11px;
+  margin: 3px 2px 0 0;
+}
+
+/* MESSAGES */
+
+.message {
+  font-size: 13px;
+  margin-top: 10px;
+  overflow-wrap: anywhere;
+}
+
+.message.success {
+  color: var(--green);
+}
+
+.message.error {
+  color: var(--red);
+}
+
+.hint {
+  margin-top: 7px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.empty {
+  color: var(--muted);
+  font-size: 13px;
+  padding: 20px 5px;
+  text-align: center;
+}
+
+/* STUDENT DIRECTORY */
+
+#searchInput {
+  margin-bottom: 14px;
+}
+
+.student-item,
+.exam-item {
+  background: #111d31;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+
+  padding: 15px;
+  margin-top: 12px;
+
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.item-title {
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.item-meta {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.item-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+/* EXAM ITEMS */
+
+.exam-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.badge {
+  display: inline-block;
+  flex-shrink: 0;
+
+  padding: 4px 9px;
+  border-radius: 20px;
+
+  background: #123e59;
+  color: #8ddcff;
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* MODALS */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+
+  background: rgba(2, 7, 17, 0.82);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 14px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.modal {
+  position: relative;
+
+  width: 100%;
+  max-width: 620px;
+  max-height: 90vh;
+
+  overflow-y: auto;
+
+  padding: 24px;
+
+  background: var(--card);
+  color: var(--text);
+
+  border: 1px solid var(--border);
+  border-radius: 17px;
+
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+}
+
+.modal h2 {
+  font-size: 21px;
+  padding-right: 32px;
+  margin-bottom: 12px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+
+  padding: 5px 11px;
+
+  background: #263751;
+  color: var(--text);
+
+  font-size: 24px;
+  line-height: 1.2;
+}
+
+/* MARK ENTRY */
+
+.mark-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 100px;
+
+  align-items: center;
+  gap: 12px;
+
+  padding: 13px 0;
+
+  border-bottom: 1px solid var(--border);
+}
+
+.mark-student-name {
+  font-size: 14px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.mark-student-meta {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 3px;
+}
+
+.mark-row input {
+  text-align: center;
+  padding: 10px 5px;
+}
+
+/* STUDENT PERFORMANCE HISTORY */
+
+.history-summary {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+
+  margin: 18px 0;
+}
+
+.stat {
+  padding: 15px;
+
+  background: #0e1a2e;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+
+  min-width: 0;
+}
+
+.stat span {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.stat strong {
+  display: block;
+  color: var(--primary);
+
+  font-size: 21px;
+  margin-top: 5px;
+
+  overflow-wrap: anywhere;
+}
+
+/* MONTHLY HISTORY */
+
+.month-section {
+  margin-top: 24px;
+}
+
+.month-section h3 {
+  color: var(--primary);
+
+  font-size: 17px;
+  font-weight: 700;
+
+  padding-bottom: 9px;
+
+  border-bottom: 2px solid var(--border);
+}
+
+.history-exam {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.history-exam-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.history-exam strong {
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.result {
+  font-size: 12px;
+  font-weight: 750;
+  flex-shrink: 0;
+}
+
+.result.pass {
+  color: var(--green);
+}
+
+.result.fail {
+  color: var(--red);
+}
+
+/* MONTHLY SUMMARY */
+
+.history-month-summary {
+  margin-top: 12px;
+  padding: 13px;
+
+  background: #0e1a2e;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+
+  color: #dbe7f7;
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.history-month-summary strong {
+  color: var(--primary);
+}
+
+/* FOOTER */
+
+footer {
+  padding: 28px 15px;
+  text-align: center;
+
+  background: #081321;
+  border-top: 1px solid var(--border);
+
+  color: var(--muted);
+  font-size: 13px;
+}
+
+footer small {
+  display: block;
+  margin-top: 4px;
+  font-size: 11px;
+}
+
+/* MOBILE RESPONSIVE */
+
+@media (max-width: 680px) {
+  .header {
+    padding: 22px 18px;
+  }
+
+  .header h1 {
+    font-size: 25px;
+  }
+
+  .header p {
+    font-size: 12px;
+  }
+
+  .container {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+
+    margin: 20px auto;
+    padding: 0 13px;
+  }
+
+  .card {
+    padding: 19px;
+    border-radius: 16px;
+  }
+
+  .card h2 {
+    font-size: 20px;
+  }
+
+  input {
+    padding: 13px;
+    font-size: 14px;
+  }
+
+  .student-item,
+  .exam-item {
+    padding: 13px;
+  }
+
+  .item-actions {
+    gap: 5px;
+  }
+
+  .small-btn {
+    padding: 9px 10px;
+    font-size: 12px;
+  }
+
+  .modal {
+    padding: 20px;
+    border-radius: 15px;
+  }
+
+  .history-summary {
+    gap: 9px;
+  }
+
+  .stat {
+    padding: 12px;
+  }
+
+  .stat strong {
+    font-size: 19px;
+  }
+
+  .mark-row {
+    grid-template-columns: minmax(0, 1fr) 85px;
+    gap: 8px;
+  }
+}
+
+/* SMALL PHONES */
+
+@media (max-width: 360px) {
+  .container {
+    padding: 0 9px;
+  }
+
+  .card {
+    padding: 15px;
+  }
+
+  .item-actions button {
+    font-size: 11px;
+    padding: 8px;
+  }
+
+  .exam-heading {
+    flex-direction: column;
+  }
+}

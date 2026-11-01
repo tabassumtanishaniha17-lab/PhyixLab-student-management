@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PhyixLab Student Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div>
+      <h1>PhyixLab</h1>
+      <p>Student Management & Performance Tracker</p>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- ADD STUDENT -->
+    <section class="card">
+      <h2>➕ Add Student</h2>
+
+      <form id="studentForm">
+        <label for="studentName">Student Name</label>
+        <input id="studentName" type="text"
+          placeholder="Enter student name" required>
+
+        <label for="studentRoll">Roll Number</label>
+        <input id="studentRoll" type="text"
+          placeholder="Enter roll number" required>
+
+        <label for="studentClass">Class</label>
+        <input id="studentClass" type="text"
+          placeholder="e.g. SSC 2027" required>
+
+        <label for="studentBatch">Batch</label>
+        <input id="studentBatch" type="text"
+          placeholder="e.g. Morning Batch" required>
+
+        <label for="studentContact">Contact (Optional)</label>
+        <input id="studentContact" type="text"
+          placeholder="Student/guardian contact">
+
+        <button type="submit" class="primary-btn">
+          Add Student
+        </button>
+
+        <p id="studentMessage" class="message"></p>
+      </form>
+    </section>
+
+    <!-- STUDENT DIRECTORY -->
+    <section class="card">
+      <h2>👨‍🎓 Student Directory</h2>
+
+      <input id="searchInput" type="search"
+        placeholder="Search name, roll, class or batch...">
+
+      <div id="studentList"></div>
+
+      <p id="emptyStudents" class="empty">
+        No students added yet.
+      </p>
+    </section>
+
+    <!-- CREATE EXAM -->
+    <section class="card">
+      <h2>📝 Create Exam</h2>
+
+      <form id="examForm">
+        <label for="examName">Exam Name</label>
+        <input id="examName" type="text"
+          placeholder="e.g. Weekly 1, Weekly 2, Monthly 1"
+          required>
+
+        <label for="examDate">Exam Date</label>
+        <input id="examDate" type="date" required>
+
+        <p class="hint">
+          Exam month will be detected automatically from this date.
+        </p>
+
+        <label for="examTotal">Total Marks</label>
+        <input id="examTotal" type="number"
+          min="1" step="any" placeholder="e.g. 100" required>
+
+        <label for="examPass">Pass Marks</label>
+        <input id="examPass" type="number"
+          min="0" step="any" placeholder="e.g. 33" required>
+
+        <button type="submit" class="primary-btn">
+          Create Exam
+        </button>
+
+        <p id="examMessage" class="message"></p>
+      </form>
+    </section>
+
+    <!-- EXAM LIST -->
+    <section class="card">
+      <h2>📊 Exams & Results</h2>
+
+      <div id="examList"></div>
+
+      <p id="emptyExams" class="empty">
+        No exams created yet.
+      </p>
+    </section>
+
+  </main>
+
+  <!-- ENTER MARKS PANEL -->
+  <div id="marksPanel" class="overlay hidden">
+    <div class="modal">
+      <button id="closeMarks" class="close-btn"
+        aria-label="Close">&times;</button>
+
+      <h2 id="selectedExamName">Enter Marks</h2>
+      <p id="selectedExamInfo" class="muted"></p>
+
+      <div id="marksList"></div>
+
+      <button id="saveMarks" class="primary-btn">
+        Save All Marks
+      </button>
+
+      <p id="marksMessage" class="message"></p>
+    </div>
+  </div>
+
+  <!-- STUDENT HISTORY MODAL -->
+  <div id="historyModal" class="overlay hidden">
+    <div class="modal history-modal">
+      <button id="closeHistory" class="close-btn"
+        aria-label="Close">&times;</button>
+
+      <h2 id="historyTitle">Student Performance</h2>
+
+      <div id="historyDetails"></div>
+    </div>
+  </div>
+
+  <footer>
+    <p>PhyixLab Student Tracker</p>
+    <small>Track progress. Improve performance.</small>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
